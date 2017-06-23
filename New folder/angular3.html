@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>    
+</head>
+<body ng-app="myApp" >
+
+    
+<p><a href="#/!">Main</a></p>
+<a href="#!banana">Banana</a>
+<a href="#!tomato">Tomato</a>
+
+
+<div ng-view=""></div>
+   
+    
+    
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        template : "<h1>Main</h1><p>Click on the links to change this content</p>"
+       
+    })
+    .when("/banana", {
+        template : "<h1>{{msg}}</h1><p >Bananas contain around 75% water.</p>",
+        controller:"banana"
+    })
+    .when("/tomato", {
+        template : "<h1>{{msg}}</h1><p>Tomatoes contain around 95% water.</p>",
+        controller:"tomato"
+    });
+});
+    
+    app.controller("banana",function($scope){$scope.msg="I love Banana";});
+    app.controller("tomato",function($scope){$scope.msg="I dont like tomato";});
+</script>
+   
+
+</body>
+</html>

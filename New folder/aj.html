@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+   <div ng-app="myApp" ng-controller="myCtrl" ng-init="mycol='yellow'">
+       {{firstname+" "+lastname}}
+    
+    <p>Name:<input type="text" ng-model="myName" placeholder="NAME"></p>
+       <h2 >My name is: {{myName}}</h2>
+       
+  
+    
+    <input style="background-color:{{mycol}}" ng-model="myCol" value="{{mycol}}">
+    <div ng-init="quantity=10;cost=5">
+        <p>total price:<span ng-bind="quantity*cost" ></span></p>
+       
+       </div>
+       <div ng-init="FirstName='Satabdi'">
+       <p> put down your name</p>
+           <p>Name:<input type="text" ng-model="FirstName"></p>
+           <P>{{FirstName}}</P>
+      
+       </div>
+       <div ng-init="name=['Porse','Audi','BMW']">
+          
+       <ul>
+           <li ng-repeat="x in name">
+           
+               {{x}};
+             
+           
+           
+           </li></ul>
+       </div>
+    
+    </div>
+    
+    
+   
+        
+        
+        
+
+
+    <script>
+    
+        var app=angular.module("myApp",[]);
+        app.controller("myCtrl",function($scope) {
+                       $scope.firstname="satabdi";
+                       $scope.lastname="Biswas"
+                       });
+        
+
+        
+    </script>
+    
+</body>
+</html>

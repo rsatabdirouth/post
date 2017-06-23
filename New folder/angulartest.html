@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script></head>
+    
+<body>
+
+      
+    <div ng-app="myApp" ng-controller="myCtrl">
+    <p>Name:<input type="text" ng-model="myName"></p>
+    <p>My name is:{{myName}}</p>
+        <br/>
+        
+     
+    <script>
+    var app=angular.module("myApp",[]);
+        app.controller("myCtrl",function($scope){
+            $scope.firstname="satabdi";
+            $scope.lastname="Routh Biswas";
+        })
+    </script>
+         {{firstname+lastname}}
+        
+        <br/>
+        <br/>
+        
+         <form ng-app="" name="myForm">
+    Email:
+    <input type="email"  ng-model="text">
+    <span ng-show="myForm.$error.email">Not a valid e-mail address</span>
+        <p>Email is:{{text}}</p>
+        </form>
+    
+        
+        
+        
+         <div ng-init="cars=[
+          { name:'polo',price:'7.5 lacs' },
+          { name:'verna',price:11    },
+          { name:'ferari',price:3.5    }]">
+        
+       <ul>
+       <li ng-repeat="x in cars">
+           
+        {{x.name+" "+x.price }}
+           
+        </li>
+        </ul> 
+    </div>
+        
+        
+        <div name="validcolr">
+        
+       <style>
+            
+           input.ng-invalid{
+               background-color: chartreuse;
+           }  
+        </style>
+        
+        <p>enter your name:<input type="text" ng-model="colr" required></p>
+        
+        </div>
+        
+        <ng-form name="myForm">
+            
+            <p>Enter Your Email here:<input type="email" ng-model="efield" name="myEmail" required></p>
+        
+        <h2>Status code</h2>
+            <p>Valid: {{myForm.myEmail | json}} </p>
+            <p>Dirty: {{myForm.myEmail.$dirty}} </p>
+            <p>Touched:{{myForm.myEmail.$touched}} </p>
+            {{efield}}
+            
+       </ng-form>
+        
+        
+     
+        
+        
+    </div>
+    
+    
+        
+        
+   
+        
+         
+    
+
+    
+   
+    
+    
+    
+    
+   
+  
+    
+    
+    
+</body>
+</html>

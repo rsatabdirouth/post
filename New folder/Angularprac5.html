@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-app="myApp">
+  <div ng-controller="myCtrl" >
+      <form >
+        
+        <input type="checkbox" ng-model="chk">
+       </form>
+        {{chk}}
+      <form>
+      Name:<input type="text" ng-model="name" ng-required="true">
+      {{name | uppercase}}
+      <style>
+          input.ng-invalid{
+              background-color:coral;
+          }
+      </style>
+      
+      </form>
+      
+       
+      <div ng-init="gadget=['i-phone','Samsung','Sony']">
+       <ul>
+        <li ng-repeat="x in gadget">
+        {{x}}   
+           
+        </li>
+        </ul>
+      </div>
+      
+   </div>
+    
+    <div ng-controller="nameCtrl">
+    <ul>
+        <li ng-repeat="x in fruit">
+        {{x.nam+" , "+x.color+" , "+x.price}}
+        </li>
+    </ul>
+    
+    </div>
+    <div ng-init="fruit=[{nam:'banana',color:'yellow', price:5},{nam:'apple',color:'red',price:160},{nam:'grape',color:'green',price:150}]">
+    <ul>
+        <li ng-repeat="x in fruit | orderBy: 'price'">
+        {{x.nam+" , "+x.color+" , "+x.price}}
+        </li>
+    </ul>
+    
+    </div>
+    
+    <script>
+      var app=angular.module("myApp",[]);
+          app.controller("myCtrl",function($scope){
+              $scope.name="riya";
+          });
+        
+          app.controller("nameCtrl",function($scope){
+        
+        $scope.fruit="[{nam:'banana',color:'yellow', price:5},{nam:'apple',color:'red',price:160},{nam:'grape',color:'green',price:150}]";
+        
+        
+    });
+      
+      </script>
+    
+</body>
+</html>

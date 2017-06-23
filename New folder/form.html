@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-app="myApp">
+    <form>
+        <input type="checkbox" ng-model="chk">
+    </form>
+    {{chk}}
+    <h2 ng-show="chk">To show the content</h2>
+    <form>
+    
+    <input type="radio" ng-model="radioval" value="yellow">yellow
+    <input type="radio" ng-model="radioval" value="pink">pink
+    <input type="radio" ng-model="radioval" value="red">red
+        
+    </form>
+    <div ng-switch="radioval">
+    <div ng-switch-when="yellow"><h2>Yellow is one of my favourite color</h2></div>
+    <div ng-switch-when="pink"><h2>pink is one of my favourite color</h2></div>
+    <div ng-switch-when="red"><h2>red is one of my favourite color</h2></div>
+    </div>
+    
+    <form>
+    select name from the option
+        <select ng-model="ddlval">
+        <option value="Yellow">yellow</option>
+        <option value="pink">pink</option>
+        <option value="red">red</option>
+        </select>
+    
+    </form>
+    <div ng-switch="ddlval">
+    <div ng-switch-when="yellow"><h2>Yellow is one of my favourite color</h2></div>
+    <div ng-switch-when="pink"><h2>pink is one of my favourite color</h2></div>
+    <div ng-switch-when="red"><h2>red is one of my favourite color</h2></div>
+    </div>
+    
+    
+</body>
+    <script>
+    var app=angular.module("myApp",[])
+    
+    </script>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-aria.js"></script>
+    
+    <body>
+    <div ng-app="myApp">
+        <div ng-controller="myCtrl">
+        1.<h2>The $location service</h2>
+        my angular location is:{{myLocation}}
+            
+            
+        
+        </div>
+        
+        <div  ng-controller="timeoutCtrl">
+        2.<h2>The $timeout control</h2>
+           the content will change: {{myhead}}
+        
+        </div>
+        
+        <div ng-controller="intervaltime">
+            3.<h2>The $interval service</h2>
+            {{intervaltime}}
+        
+        </div>
+        <div ng-controller="heservice">
+        4.<h2>The $newservice service</h2>
+       
+            
+            {{hex}}
+        
+        </div>
+        
+        <div ng-controller="ownCtrl">
+        5.<h2>The $myservice service</h2>
+       
+            
+            {{hex}}
+            {{res}}
+        
+        </div>
+       
+       
+        
+        <script>
+        var app=angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope,$location){
+               $scope.myLocation=$location.absUrl(); 
+                
+                
+            });
+            
+            app.controller("timeoutCtrl",function($scope,$timeout){
+                $scope.myhead="I am Satabdi";
+                $timeout(function(){
+                    $scope.myhead="I am not feeling good today";
+                },2000);
+            });
+            
+            app.controller("intervaltime",function($scope,$interval){
+                
+                $scope.intervaltime=new Date().toLocaleTimeString();
+                $interval(function(){
+                    $scope.intervaltime=new Date().toLocaleTimeString()
+                },1000);
+            });
+        
+
+              app.service('hexafy', function() {
+              this.myFunc = function (x) {
+              return x.toString(16);
+              }
+              });
+              app.controller('heservice', function($scope, hexafy) {
+  
+              $scope.hex = hexafy.myFunc(255);
+              });
+        
+            
+            
+            app.service('mul', function() {
+            this.myFunc = function (x) {
+            return 10*x;
+            }
+            });
+            app.controller('ownCtrl', function($scope, mul) {
+            $scope.hex = mul.myFunc(98);
+            });
+        
+        </script>
+       <form ng-controller='formCtrl'>
+        
+        <input type="checkbox" ng-model="chk">
+       </form>
+        {{chk}}
+    
+    </div>
+
+        
+
+
+
+    
+    
+    </body>
+</html>

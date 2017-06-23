@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script></head>
+    
+<body>
+ <div ng-app="myApp" name="myFilters" ng-controller="myFilt">
+             
+             <p>enter the key you want to find<input type="text" ng-model="myTest"></p>
+        
+             
+             <ul>
+             <li ng-repeat="x in names| filter:myTest">
+                 
+                 {{x}}
+            </li>
+            </ul>
+             
+             
+             <script>
+             
+             var app=angular.module("myApp",[]);
+             app.controller("myFilt",function($scope){
+                     
+                  $scope.names=[
+                      
+                      'Riya',
+                      'Satabdi',
+                      'Suman',
+                      'Antu',
+                      'Subhajit'];});
+             
+             </script>
+ </div>
+    </body>
+</html>
+
+
+
+
+

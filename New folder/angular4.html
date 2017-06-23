@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-app="myApp">
+
+<div  ng-controller="myCtrl">
+    <h2>how to print the name and bind with a existing value</h2>
+    <p>Name:<input type="text" ng-model="myName"></p>
+    Goodmorning: {{myName | uppercase}}
+    
+   
+    
+    <h2>how to initialize an object in angular</h2>
+    <div ng-init="fruits={name:'apple',price:160}">
+    {{fruits.name+" "+fruits.price}}
+    </div>
+    
+    
+    <h2>How to initialize array in angular</h2>
+    <div ng-init="flower=['lily','jasmine','rose']">
+    <p>the second flower in the array is:<span ng-bind="flower[1]"></span></p>
+    </div>
+    
+    
+    
+    <h2> how controler is used and module is created</h2>
+     <p>the name of the car is::{{carname}}</p>
+    
+    
+    
+     <h2>print each element exists in the array</h2>
+    <div ng-init="colors=['red','yellow','green','black']">
+        
+        <ul>
+        <li ng-repeat="x in colors">
+            {{x}}
+            
+        </li>
+        </ul>
+    
+    
+    </div>
+    
+    <h2>print array objects</h2>
+    <div ng-init="products=[{product:'mobile',price:15000},{product:'TV',price:43000},{product:'AC',price:30000}]">
+    <ul>
+        <li ng-repeat="x in products| orderBy:'price'">
+        
+            {{x.product+" "+x.price}}
+        
+        </li>
+    </ul>
+    </div>
+    
+    <h2>initialization of the values in the text box</h2>
+    <div ng-conntroller="myCtrl">
+    Name:<input type="text" ng-model="first">
+        {{first }}
+    </div>
+   
+    
+    <h2>errror message and validation</h2>
+    <form name="validationform">
+     Email:<input type="email" placeholder="test@test.com" ng-model="myEmail" required name="emailvalidation">
+    <span ng-show="validationform.emailvalidation.$error.email">Not a valid e-mail address</span>
+    {{myEmail}}
+        
+        <h5>validation message</h5>
+        valid:{{validationform.emailvalidation.$valid}}<br/> 
+        dirty:{{validationform.emailvalidation.$dirty}}<br/>
+        touched:{{validationform.emailvalidation.$touched}}<br/>
+        error:{{validationform.emailvalidation.$error}}
+       <style>
+           input.ng-invalid{
+               background-color:fuchsia;
+           }
+        
+        </style>
+    
+    </form>
+    
+    
+    
+    
+    
+    <script>
+    
+    var app=angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){$scope.carname="polo";});
+    app.controller("myCtrl",function($scope){$scope.first="satabdi";});
+    
+   
+    
+    </script>
+    
+   
+</div>
+    
+    
+   
+
+</body>
+</html>
