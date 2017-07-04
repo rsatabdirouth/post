@@ -10,7 +10,17 @@ angular.module('mainApp')
         controller: 'aboutUsCtrl as aboutus'
     })
     .when('/post', {
-        templateUrl: './components/post/post.html',
+        templateUrl: './components/post/_post.html',
         controller: 'postCtrl as post'
     })
+    .when('/listgroup', {
+        templateUrl: './components/listgroup/_list.html',
+        controller: 'listCtrl as list'
+    })
+
+    
+    
 });
+
+   
+    
